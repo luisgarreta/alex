@@ -1,6 +1,6 @@
 Package: desistimiento
 Title: Predicción de Desistimiento en Excombatientes
-Version: 0.94
+Version: 0.95
 Authors@R: 
     person(given = "First",
            family = "Last",

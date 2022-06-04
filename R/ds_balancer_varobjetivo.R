@@ -12,7 +12,7 @@ ds_balancear_varobjetivo <- function (archivoDatos) {
 	#library (openxlsx)
 	#archivoDatos = "datos_Filtrados.csv"
 
-	datos = read.csv (archivoDatos)
+	datos = read.csv (archivoDatos, stringsAsFactors=T)
 
 	# Fijar una "semilla" para que se obtengan siempre los mismos resultados
 	set.seed(123)
@@ -44,13 +44,14 @@ ds_balancear_varobjetivo <- function (archivoDatos) {
     summT = data.frame (SituacionFinal=rownames (summ),summ)
     dat = reshape2::melt (id=c("SituacionFinal"),summT, value.name="Desmovilizados")
 
-	ggplot(dat, aes(x = SituacionFinal, y = Desmovilizados, fill = SituacionFinal)) + 
+	p = ggplot(dat, aes(x = SituacionFinal, y = Desmovilizados, fill = SituacionFinal)) + 
   		facet_wrap (~variable) + 
 		geom_bar (stat = "identity") +
   		geom_text (aes(label = Desmovilizados), vjust = 2)
 
 	ggsave ("histogramas_balanceo.pdf", width=7, height=7);
-	ggsave ("histogramas_balanceo.png", width=7, height=7);
+	#ggsave ("histogramas_balanceo.png", width=7, height=7);
+	p
 }
 
 #' Elimina observaciones con muy pocos datos en categorías (0.5% del total de los datos).
@@ -60,7 +61,7 @@ ds_balancear_varobjetivo <- function (archivoDatos) {
 #' @export
 ds_limpiar_observaciones <- function (archivoDatos) {
 	#archivoDatos = "datos_Filtrados.csv"
-	datosObs = read.csv (archivoDatos)
+	datosObs = read.csv (archivoDatos, stringsAsFactors=T)
 	listaVariables = names (datosObs)
 	listaQuienes   = c()
 	nroObservaciones = nrow (datosObs)
