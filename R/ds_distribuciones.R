@@ -11,7 +11,7 @@ ds_distribuciones <- function (archivoDatos) {
 #	library (dplyr)
 #	library (ggthemes)
 
-	datos = read.csv (archivoDatos)
+	datos = read.csv (archivoDatos, stringsAsFactors=T)
 	# ```{r fig.asp = 0.8, fig.width = 11, warning=FALSE}
 	datosTB = as_tibble (datos)
 

@@ -19,9 +19,9 @@ options (width=200)
 
 # Instalación
 
--   Primero, desde Rstudio instalar el paquete "remotes" para manejar la instalación con todas las dependencias de forma automática.
+-   Primero, desde Rstudio instalar el paquete "devtools" para manejar la instalación con todas las dependencias de forma automática.
 
--   Segundo, ejecutar la función "install_local" con el nombre del archivo del paquete "desistimiento.
+-   Segundo, ejecutar la función "install_github" con el nombre del repositorio del paquete "desistimiento.
 
 -   Si solicita alguna opción de actualización, se la puede saltar presionando "ENTER" o "INTRO".
 

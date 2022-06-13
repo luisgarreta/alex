@@ -4,7 +4,7 @@
 #' @export	
 ds_mostrar_estructura <- function (archivoDatos){
 	archivoSalida = "estructura_datos"
-	datos = read.csv (archivoDatos)
+	datos = read.csv (archivoDatos, stringsAsFactors=T)
 	texto = "________________________"
 	mostrarCategorias <- function (variable) {
 		if (class(datos[[variable]]) == "factor") {
